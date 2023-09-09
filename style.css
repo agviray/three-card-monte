@@ -62,6 +62,7 @@ li:not(:last-child) {
 }
 
 .instructions {
+  display: none;
   padding: 3rem 1.5rem;
 }
 
@@ -74,4 +75,29 @@ li:not(:last-child) {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+}
+
+.dialogue {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: rgb(217, 228, 243);
+}
+
+.dialogue__game {
+  padding-bottom: 1rem;
+}
+
+.dialogue__user-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dialogue .button--rearrange-cards,
+.dialogue .button--show-instructions {
+  height: auto;
+  padding: 8px;
 }
