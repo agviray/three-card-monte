@@ -24,10 +24,12 @@ p {
 }
 
 .button {
+  display: inline-block;
   min-width: 120px;
   height: 35px;
   font-size: 14px;
-  outline: none;
+  text-align: center;
+  border: none;
 }
 
 .title-screen {
@@ -45,6 +47,6 @@ p {
   padding-bottom: 2rem;
 }
 
-.title-screen__options {
+.title-screen__button-options {
   gap: 1rem;
 }
