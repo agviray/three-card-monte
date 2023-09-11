@@ -8,7 +8,7 @@
 html,
 body {
   min-height: 100%;
-  background-color: rgb(217, 228, 243);
+  background-color: #ffffff;
   position: relative;
 }
 
@@ -42,6 +42,9 @@ li:not(:last-child) {
   border: none;
 }
 
+/* ************************ */
+/* Game title screen styles */
+/* ************************ */
 .title-screen {
   position: absolute;
   top: 0;
@@ -51,6 +54,8 @@ li:not(:last-child) {
   width: 100%;
   min-height: 100vh;
   background-color: rgba(51, 51, 51, 0.7);
+
+  display: none;
 }
 
 .title-screen__title {
@@ -61,6 +66,9 @@ li:not(:last-child) {
   gap: 1rem;
 }
 
+/* ************************ */
+/* Game instructions styles */
+/* ************************ */
 .instructions {
   display: none;
   padding: 3rem 1.5rem;
@@ -77,6 +85,13 @@ li:not(:last-child) {
   padding-top: 2rem;
 }
 
+/* ******************************* */
+/* Game environment and box styles */
+/* ******************************* */
+
+/* ******************** */
+/* Game dialogue styles */
+/* ******************** */
 .dialogue {
   position: fixed;
   bottom: 0;
@@ -84,6 +99,8 @@ li:not(:last-child) {
   width: 100%;
   padding: 1rem 1.5rem;
   background-color: rgb(217, 228, 243);
+
+  display: none;
 }
 
 .dialogue__game {
