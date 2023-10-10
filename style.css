@@ -167,6 +167,18 @@ li:not(:last-child) {
   transform: translateZ(100px);
 }
 
+@media screen and (min-width: 900px) {
+  .environment__box {
+    width: 300px;
+    height: 300px;
+    margin-left: -150px;
+  }
+
+  .box {
+    transform: translateZ(150px);
+  }
+}
+
 .box__face {
   position: absolute;
   width: 200px;
@@ -215,6 +227,41 @@ li:not(:last-child) {
   transform-origin: top;
   transform: rotateX(90deg);
   /* transition: background-color 1s ease; */
+}
+
+@media screen and (min-width: 900px) {
+  .box__face {
+    width: 300px;
+    height: 300px;
+  }
+
+  .box__face--front {
+    transform: rotateY(0deg) translateZ(150px);
+  }
+
+  .box__face--back {
+    transform: rotateY(180deg) translateZ(150px);
+  }
+
+  .box__face--right {
+    transform: rotateY(90deg) translateZ(150px);
+  }
+
+  .box__face--left {
+    transform: rotateY(-90deg) translateZ(150px);
+  }
+
+  .box__face--top {
+    transform: rotateX(90deg) translateZ(150px);
+  }
+
+  /* .box__face--bottom {
+    transform: rotateX(-90deg) translateZ(150px);
+  } */
+
+  .box__flap {
+    height: 150px;
+  }
 }
 /* ******************** */
 /* Game dialogue styles */
