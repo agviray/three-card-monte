@@ -27,7 +27,10 @@ const exitInstructions = () => {
 // - Exits title-screen and tilts environment forward to display the top
 //   of the box (where the cards are laying).
 const playGame = () => {
-  console.log('Envionment tilts forward, and main game scene is shown!');
+  // *** TODO ****
+  // 1. Exit/hide title screen.
+  // 2. Smoothly display game dialoge container (identified by .dialogue class)
+  // 3. Tilt game "camera" forward to show top of box.
 };
 
 // - Rearrange/mix the three cards
