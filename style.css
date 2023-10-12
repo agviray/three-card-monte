@@ -55,9 +55,7 @@ li:not(:last-child) {
   width: 100%;
   min-height: 100vh;
   background-color: rgba(51, 51, 51, 0.7);
-
-  /* Temporarily display none, while adding main game styles */
-  display: none;
+  z-index: 10;
 }
 
 .title-screen__title {
@@ -72,11 +70,25 @@ li:not(:last-child) {
 /* Game instructions styles */
 /* ************************ */
 .instructions {
-  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   padding: 3rem 1.5rem;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(218, 218, 218, 1);
+  z-index: 11;
+  transition: all 0.3s ease;
 }
 
-.instructions__heading {
+.instructions__content {
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: all 0.3s ease 0.3s;
+}
+
+.instructions h2 {
   padding-bottom: 2rem;
   text-align: center;
 }
@@ -87,6 +99,14 @@ li:not(:last-child) {
   padding-top: 2rem;
 }
 
+.instructions.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.instructions.active .instructions__content {
+  opacity: 1;
+}
 /* ******************************* */
 /* Game environment and box styles */
 /* ******************************* */
@@ -266,15 +286,13 @@ li:not(:last-child) {
 /* Game dialogue styles */
 /* ******************** */
 .dialogue {
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 1rem 1.5rem;
   background-color: rgb(217, 228, 243);
-
-  /* Temporarily display none, while adding main game styles */
-  display: none;
 }
 
 .dialogue__game {

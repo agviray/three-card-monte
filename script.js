@@ -9,12 +9,18 @@ const rearrangeCardsButton = document.querySelector('.button--rearrange-cards');
 
 // - Shows instructions to user.
 const showInstructions = () => {
-  console.log('Instructions are shown!');
+  const instructions = document.querySelector('.instructions');
+  if (!instructions.classList.contains('active')) {
+    instructions.classList.add('active');
+  }
 };
 
 // - Exits out of instructions.
 const exitInstructions = () => {
-  console.log('Instructions are exited!');
+  const instructions = document.querySelector('.instructions');
+  if (instructions.classList.contains('active')) {
+    instructions.classList.remove('active');
+  }
 };
 
 // - Progresses user to main game.
