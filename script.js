@@ -28,9 +28,13 @@ const exitInstructions = () => {
 //   of the box (where the cards are laying).
 const playGame = () => {
   // *** TODO ****
-  // 1. Exit/hide title screen.
   // 2. Smoothly display game dialoge container (identified by .dialogue class)
   // 3. Tilt game "camera" forward to show top of box.
+  const titleScreen = document.querySelector('.title-screen');
+  const dialogue = document.querySelector('.dialogue');
+
+  titleScreen.classList.add('inactive');
+  dialogue.classList.add('active');
 };
 
 // - Rearrange/mix the three cards
