@@ -32,9 +32,16 @@ const playGame = () => {
   // 3. Tilt game "camera" forward to show top of box.
   const titleScreen = document.querySelector('.title-screen');
   const dialogue = document.querySelector('.dialogue');
+  const environment = document.querySelector('.environment');
+  const boxFaceFront = document.querySelector('.box__face--front');
 
   titleScreen.classList.add('inactive');
-  dialogue.classList.add('active');
+  environment.classList.add('tilt-forward');
+  boxFaceFront.classList.add('box-shade');
+
+  setTimeout(function () {
+    dialogue.classList.add('active');
+  }, 1350);
 };
 
 // - Rearrange/mix the three cards
