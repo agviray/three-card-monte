@@ -261,10 +261,6 @@ li:not(:last-child) {
   border-left: 1px solid rgb(184, 156, 133);
 }
 
-/* .box__face--bottom {
-  transform: rotateX(-90deg) translateZ(100px);
-} */
-
 .box__flap {
   position: absolute;
   top: 100%;
@@ -303,14 +299,36 @@ li:not(:last-child) {
     transform: rotateX(90deg) translateZ(150px);
   }
 
-  /* .box__face--bottom {
-    transform: rotateX(-90deg) translateZ(150px);
-  } */
-
   .box__flap {
     height: 150px;
   }
 }
+/* ******************** */
+/* Cards styles */
+/* ******************** */
+
+.card-collection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  margin-top: -35%;
+  margin-left: -35%;
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: flex-start; */
+  align-items: center;
+}
+
+.card-collection__card {
+  position: relative;
+  /* top: 50%; */
+  width: calc(100% * 0.24);
+  height: calc(100% * 0.35);
+  background-color: black;
+}
+
 /* ******************** */
 /* Game dialogue styles */
 /* ******************** */
