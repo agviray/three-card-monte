@@ -321,7 +321,7 @@ li:not(:last-child) {
   align-items: center;
 }
 
-.card-collection__card {
+.card-container {
   position: relative;
   /* top: 50%; */
   width: calc(100% * 0.24);
