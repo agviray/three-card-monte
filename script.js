@@ -33,8 +33,24 @@ const playGame = () => {
   }, 1350);
 };
 
+// - Rearrange/mix the three cards
+const rearrangeCards = () => {
+  console.log('Cards are rearranged!');
+};
+
+// - Identify/show target card to user.
+const identifyTargetCard = () => {
+  const targetCard = document.querySelector('.target-card');
+  targetCard.classList.add('flipped', 'identifier');
+  targetCard.onanimationend = (event) => {
+    event.target.classList.remove('flipped', 'identifier');
+  };
+  // *** Todo ***
+  // - Call rearrangeCards to shuffle cards.
+};
+
 // *** Multiple functionality ***
-// - 1. "Triggers" start of game.
+// - 1. "Triggers" start of a game.
 // - 2. Updates game dialogue. Game response changes depending on user's response.
 const updateGameDialogue = (event, text) => {
   const gameResponse = document.querySelector('.dialogue__game');
@@ -44,18 +60,12 @@ const updateGameDialogue = (event, text) => {
     if (cardMovementsLeft === 4) {
       dialogueUserOptions.classList.add('removed');
       gameResponse.textContent = text;
+      identifyTargetCard();
+    } else {
       // *** Todo ***
-      // - Note: This will be re-used to update game response.
-      // - Hide user option buttons.
-      // - Update gameResponse text content.
-      // - Identify (show) target card somehow.
+      // - Update game response if this function is used for reasons other than triggering the start of the game.
     }
   }
-};
-
-// - Rearrange/mix the three cards
-const rearrangeCards = () => {
-  console.log('Cards are rearranged!');
 };
 
 // - Decides which card will be the winning card, and assigns a specific image to serve as that card's character (face-side).
@@ -134,7 +144,7 @@ const loadEventListeners = () => {
     toggler.addEventListener('click', toggleInstructions);
   });
   playGameButton.addEventListener('click', playGame);
-  rearrangeCardsButton.addEventListener('click', function () {
+  rearrangeCardsButton.addEventListener('click', function (event) {
     updateGameDialogue(
       event,
       'Loving the confidence! Keep your eyes on this card..'
