@@ -1,27 +1,16 @@
 const cardContainers = Array.from(document.querySelectorAll('.card-container'));
-const showInstructionsButtons = Array.from(
-  document.querySelectorAll('.button--show-instructions')
+const instructionsTogglers = Array.from(
+  document.querySelectorAll('.button--instructions-toggler')
 );
 const playGameButton = document.querySelector('.button--play-game');
-const exitInstructionsButton = document.querySelector(
-  '.button--exit-instructions'
-);
 const rearrangeCardsButton = document.querySelector('.button--rearrange-cards');
 
-// - Shows instructions to user.
-const showInstructions = () => {
+// - Toggles game instructions
+const toggleInstructions = () => {
   const instructions = document.querySelector('.instructions');
-  if (!instructions.classList.contains('active')) {
-    instructions.classList.add('active');
-  }
-};
-
-// - Exits out of instructions.
-const exitInstructions = () => {
-  const instructions = document.querySelector('.instructions');
-  if (instructions.classList.contains('active')) {
-    instructions.classList.remove('active');
-  }
+  return instructions.classList.contains('active')
+    ? instructions.classList.remove('active')
+    : instructions.classList.add('active');
 };
 
 // - Progresses user to main game.
@@ -119,10 +108,9 @@ const flipCard = (event) => {
 const loadEventListeners = () => {
   console.log('loadEventListeners ran');
   document.addEventListener('DOMContentLoaded', loadCards);
-  showInstructionsButtons.forEach((button) =>
-    button.addEventListener('click', showInstructions)
-  );
-  exitInstructionsButton.addEventListener('click', exitInstructions);
+  instructionsTogglers.forEach((toggler) => {
+    toggler.addEventListener('click', toggleInstructions);
+  });
   playGameButton.addEventListener('click', playGame);
   rearrangeCardsButton.addEventListener('click', rearrangeCards);
   document
