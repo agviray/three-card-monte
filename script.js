@@ -89,7 +89,7 @@ const loadCards = (cardsArray) => {
     imgDesign.className = 'design';
     // - Create character side of card.
     const divCharacter = document.createElement('div');
-    divCharacter.className = 'card-face card-character';
+    divCharacter.className = 'card__face card__face--character';
     // - Create character image of card.
     const imgCharacter = document.createElement('img');
     imgCharacter.className = 'character';
