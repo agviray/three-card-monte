@@ -1,3 +1,4 @@
+const cardContainers = Array.from(document.querySelectorAll('.card-container'));
 const showInstructionsButtons = Array.from(
   document.querySelectorAll('.button--show-instructions')
 );
@@ -27,9 +28,6 @@ const exitInstructions = () => {
 // - Exits title-screen and tilts environment forward to display the top
 //   of the box (where the cards are laying).
 const playGame = () => {
-  // *** TODO ****
-  // 2. Smoothly display game dialoge container (identified by .dialogue class)
-  // 3. Tilt game "camera" forward to show top of box.
   const titleScreen = document.querySelector('.title-screen');
   const dialogue = document.querySelector('.dialogue');
   const environment = document.querySelector('.environment');
@@ -49,8 +47,38 @@ const rearrangeCards = () => {
   console.log('Cards are rearranged!');
 };
 
+// - Decides which card will be the winning card, and assigns a specific image to serve as that card's character (face-side).
+const assignCardTypes = () => {
+  // - Generate winning card index.
+  const winnerIndex = Math.floor(Math.random() * 3);
+  const cardTypes = [];
+  let type;
+
+  for (let i = 0; i < 3; i++) {
+    if (i === winnerIndex) {
+      type = 'target-card';
+    } else {
+      type = 'support-card';
+    }
+    cardTypes.push(type);
+  }
+  return cardTypes;
+};
+
+// - Creates and loads "original" cards into DOM
+const loadCards = (cardsArray) => {
+  let cardTypes;
+
+  if (cardsArray.length === undefined) {
+    cardIds = ['card-1', 'card-2', 'card-3'];
+    cardTypes = assignCardTypes();
+  }
+  console.log(cardTypes);
+};
+
 const loadEventListeners = () => {
   console.log('loadEventListeners ran');
+  document.addEventListener('DOMContentLoaded', loadCards);
   showInstructionsButtons.forEach((button) =>
     button.addEventListener('click', showInstructions)
   );
