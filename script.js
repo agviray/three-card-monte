@@ -108,6 +108,14 @@ const loadCards = (cardsArray) => {
   });
 };
 
+// - Flips card to reveal character.
+const flipCard = (event) => {
+  const card = event.target.parentElement.parentElement;
+  if (card.classList.contains('card')) {
+    card.classList.toggle('flipped');
+  }
+};
+
 const loadEventListeners = () => {
   console.log('loadEventListeners ran');
   document.addEventListener('DOMContentLoaded', loadCards);
@@ -117,6 +125,9 @@ const loadEventListeners = () => {
   exitInstructionsButton.addEventListener('click', exitInstructions);
   playGameButton.addEventListener('click', playGame);
   rearrangeCardsButton.addEventListener('click', rearrangeCards);
+  document
+    .querySelector('.card-collection')
+    .addEventListener('click', flipCard);
 };
 
 loadEventListeners();
