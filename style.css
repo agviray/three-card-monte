@@ -336,6 +336,13 @@ li:not(:last-child) {
   max-width: 100%;
   max-height: 100%;
   border-radius: inherit;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.flipped {
+  transform: rotateY(180deg);
 }
 
 .card:hover {
