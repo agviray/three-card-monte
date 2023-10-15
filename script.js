@@ -5,6 +5,8 @@ const instructionsTogglers = Array.from(
 const playGameButton = document.querySelector('.button--play-game');
 const rearrangeCardsButton = document.querySelector('.button--rearrange-cards');
 
+let cardMovementsLeft = 4;
+
 // - Toggles game instructions
 const toggleInstructions = () => {
   const instructions = document.querySelector('.instructions');
@@ -29,6 +31,26 @@ const playGame = () => {
   setTimeout(function () {
     dialogue.classList.add('active');
   }, 1350);
+};
+
+// *** Multiple functionality ***
+// - 1. "Triggers" start of game.
+// - 2. Updates game dialogue. Game response changes depending on user's response.
+const updateGameDialogue = (event, text) => {
+  const gameResponse = document.querySelector('.dialogue__game');
+  const dialogueUserOptions = document.querySelector('.dialogue__user-options');
+
+  if (event.target.classList.contains('button--rearrange-cards')) {
+    if (cardMovementsLeft === 4) {
+      dialogueUserOptions.classList.add('removed');
+      gameResponse.textContent = text;
+      // *** Todo ***
+      // - Note: This will be re-used to update game response.
+      // - Hide user option buttons.
+      // - Update gameResponse text content.
+      // - Identify (show) target card somehow.
+    }
+  }
 };
 
 // - Rearrange/mix the three cards
@@ -112,7 +134,12 @@ const loadEventListeners = () => {
     toggler.addEventListener('click', toggleInstructions);
   });
   playGameButton.addEventListener('click', playGame);
-  rearrangeCardsButton.addEventListener('click', rearrangeCards);
+  rearrangeCardsButton.addEventListener('click', function () {
+    updateGameDialogue(
+      event,
+      'Loving the confidence! Keep your eyes on this card..'
+    );
+  });
   document
     .querySelector('.card-collection')
     .addEventListener('click', flipCard);

@@ -410,3 +410,7 @@ li:not(:last-child) {
   height: auto;
   padding: 8px;
 }
+
+.removed {
+  display: none;
+}
