@@ -35,7 +35,18 @@ const playGame = () => {
 
 // - Rearrange/mix the three cards
 const rearrangeCards = () => {
-  console.log('Cards are rearranged!');
+  // *** Todo ***
+  // - 1. Create reference to the current card order. Reference should be array of DOM elements having the 'card' class.
+  // - 2. Shuffle array items in current card order reference, and create a reference to the shuffled cards order array.
+  // - 3. Create 2 references--one for target card, and another for support cards.
+  //      - The target card reference can directly refer to the DOM target card, and the support cards reference can be an array of the DOM support cards.
+  // - 4. Create an unchanging "source" of positions to represent the position of a card on the box.
+  //      - Maybe an array?
+  // - 5. Create references to the target card's placement in both the current cards order and shuffled cards order references.
+  //      - We are essentially going to use positions array to track the target card's position in both pre and post shuffle order.
+  //      - Use the positions array to associate a position with the target card's initial placement in the current cards order reference.
+  //      - Use the positions array to associate a position with the target card's placement in the shuffled cards order reference.
+  // - 6. Call some function to check if post shuffle position of target card is acceptable. For example, the target card's post-shuffle position is not acceptable if it was placed in the same position that it was in previously.
 };
 
 // - Identify/show target card to user.
