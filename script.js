@@ -65,7 +65,7 @@ const assignCardTypes = () => {
   return cardTypes;
 };
 
-// - Creates and loads "original" cards into DOM
+// - Creates and loads "original" cards into DOM.
 const loadCards = (cardsArray) => {
   let cardTypes;
 
@@ -73,7 +73,39 @@ const loadCards = (cardsArray) => {
     cardIds = ['card-1', 'card-2', 'card-3'];
     cardTypes = assignCardTypes();
   }
-  console.log(cardTypes);
+
+  cardContainers.forEach(function (container, index) {
+    // - Create card.
+    const divCard = document.createElement('div');
+    divCard.id = cardIds[index];
+    divCard.className = `card card-original ${cardTypes[index]}`;
+    // - Create design side of card.
+    const divDesign = document.createElement('div');
+    divDesign.className = 'card__face card__face--design';
+    // - Create design image of card.
+    const imgDesign = document.createElement('img');
+    imgDesign.src = './images/card-design.png';
+    imgDesign.alt = 'Blue colored design';
+    imgDesign.className = 'design';
+    // - Create character side of card.
+    const divCharacter = document.createElement('div');
+    divCharacter.className = 'card-face card-character';
+    // - Create character image of card.
+    const imgCharacter = document.createElement('img');
+    imgCharacter.className = 'character';
+    if (cardTypes[index] === 'target-card') {
+      imgCharacter.src = './images/pug.jpeg';
+    } else {
+      imgCharacter.src = './images/fox.jpeg';
+    }
+    // - Construct full card using created parts from above.
+    divDesign.appendChild(imgDesign);
+    divCharacter.appendChild(imgCharacter);
+    divCard.appendChild(divDesign);
+    divCard.appendChild(divCharacter);
+    // - Append constructed card to appropriate parent card-container in DOM.
+    container.appendChild(divCard);
+  });
 };
 
 const loadEventListeners = () => {
